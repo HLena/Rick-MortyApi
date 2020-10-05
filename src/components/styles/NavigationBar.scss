@@ -1,12 +1,6 @@
 @import '../../generalStyles.scss';
 
-.navigation__container{
-  position: relative;
-  top: 60px;
-  height: max-content;
-  // margin: 20px;
 
-}
 
 .navigation__input{
   outline: none;
@@ -19,4 +13,12 @@
   font-size: 16px;
   font-weight: bold;
   background: $backgroundColorSolid;
+  width: 80%;
+}
+
+@media only screen and (min-width: 600px) {
+  .navigation__input{
+    max-width: 600px;
+    width: 70%;
+  }
 }

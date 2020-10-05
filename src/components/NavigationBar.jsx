@@ -2,10 +2,10 @@ import React from 'react'
 import './styles/NavigationBar.scss'
 
 const NavigationBar = (props) => {
-  const {textValue, onChangeValue} = props;
+  const {textValue, onChangeValue, visible} = props;
   return (
-    <div className="navigation__container">
       <input
+        style = {{visibility:(visible ? 'visible' : 'hidden')}}
         className="navigation__input mr-5" 
         type="text" 
         placeholder=" Write here ..."
@@ -13,7 +13,6 @@ const NavigationBar = (props) => {
         value = {textValue}
         onChange = {onChangeValue}
       />
-    </div>
   )
 }
 
