@@ -24,6 +24,10 @@ body{
   overflow-x: hidden;
 }
 
+main{
+  padding-top: 60px;
+}
+
 .mr-5{
   margin: 10px;
 }
@@ -70,4 +74,5 @@ h1{
 .icon{
   width: 30px;
   margin: 10px;
+  cursor: pointer;
 }
