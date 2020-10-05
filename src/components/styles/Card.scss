@@ -1,0 +1,58 @@
+@import '../../generalStyles.scss';
+
+.card-character{
+  font-family: 'Cousine', monospace;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  width: min-content;
+  border-radius: 5px;
+  color: $fontLigthColor;
+  background: $cardColor;
+  .card__img{
+    border-radius: 5px 5px 0 0;
+    height: 300px;
+    width: 300px;
+  }
+  .card__info{
+    width: 100%;
+    .name-character{
+      margin: 10px;
+    }
+    .card-icon{
+      width: 15px;
+      height: 15px;
+      margin: 10px;
+    }
+    .detail{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+    }
+    hr{
+      width: 90%;
+      border:0.2px solid $backgroundColor;
+    }
+  }
+}
+
+.state-icon{
+  border-radius: 45%;
+  // background: red;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .card-character{
+    width: max-content;
+    .card__img{
+      height: 250px;
+      width: 250px;
+    }
+    .card__info{
+      width: 250px;
+    }
+  }
+}

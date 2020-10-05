@@ -1,0 +1,22 @@
+@import '../../generalStyles.scss';
+
+.navigation__container{
+  position: relative;
+  top: 60px;
+  height: max-content;
+  // margin: 20px;
+
+}
+
+.navigation__input{
+  outline: none;
+  height: 45px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid $pinckColor;
+  background: none;
+  color: $pinckColor;
+  font-size: 16px;
+  font-weight: bold;
+  background: $backgroundColorSolid;
+}
