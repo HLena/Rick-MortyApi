@@ -1,0 +1,22 @@
+@import '../../generalStyles.scss';
+
+.logo{  
+  width: 80%;
+}
+
+.main-logo{  
+  width: 150%;
+  transform: rotate(-18deg);
+}
+
+.description{
+  margin: .5em;
+  clip-path: polygon(5% 0, 80% 0%, 100% 0, 100% 95%, 95% 100%, 20% 100%, 0 100%, 0 5%);
+  background: $transparentColor;
+  padding: 5px;
+  max-width: 300px;
+  font-family: 'Cousine', monospace;
+  color: $fontLigthColor;
+  line-height: 1.8;
+  font-size: 12px;
+}
