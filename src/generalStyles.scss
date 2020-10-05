@@ -1,10 +1,73 @@
-$backgroundColor: #261939;
+$backgroundColor: radial-gradient( circle 468px at 50.9% 57%,  rgba(8,108,125,0.90) 1.8%, rgba(17,38,62,1) 90.7% );
+$transparentColor: rgba(255, 255, 255, 0.363);
+$fontLigthColor: #fff;
+$btnColor: #38B0C8;
+$cardColor: rgb(32, 62, 97);
+$pinckColor : #3ce4c8;
+$backgroundColorSolid: rgba(17,38,62,1);
+
+@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body{
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+
 }
 
 #root{
-  background: $backgroundColor;
+  background-image: $backgroundColor;
+  width: 100vw;
+  min-height: 100vh;
+  height: max-content;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.mr-5{
+  margin: 10px;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+// buttons
+
+.btn{
+  bottom: none;
+  outline: none;
+}
+
+.primary-btn{
+  color: $fontLigthColor;
+  background: $btnColor;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: .5em;
+}
+
+// text
+
+h1{
+  margin: 0;
+  text-transform: uppercase;
+  color: $fontLigthColor;
+  font-family: 'Cousine', monospace;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+// icons
+
+.icon{
+  width: 30px;
+  margin: 10px;
 }
