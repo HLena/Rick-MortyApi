@@ -26,6 +26,8 @@ body{
   height: max-content;
   text-align: center;
   overflow-x: hidden;
+  display: flex;
+  align-items: center;
 }
 
 main{
@@ -71,6 +73,10 @@ h1{
 .row{
   display: flex;
   flex-direction: row;
+}
+.col{
+  display: flex;
+  flex-direction: column;
 }
 
 // icons
