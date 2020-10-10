@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useSearch from '../hooks/useSearch';
+import useFilter from '../hooks/useFilter';
 
 import Navbar from '../components/Navbar'
 import Card from '../components/Card'
@@ -25,31 +25,73 @@ const NoResultFounded = () => {
 
 
 const CharactersList = (props) => {
-  const {text, setText, filteredCharacters} = useSearch(props.data);
   const [showBarSearch, setShowBarSearch] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [genderOption, setGenderOption] = useState('all');
+  const [statusOption, setStatusOption] = useState('all');
+  const [specieOption, setSpecieOption] = useState('all');
+  const {text, setText, filteredData} = useFilter(props.data, genderOption, statusOption, specieOption);
+
+  // console.log('filter', filteredData);
+
+  const handleOptionChange = ({target}) => {
+    const option = target.id.includes('unknown') ? 'unknown' : target.id;
+    console.log(target);
+    switch(target.name) {
+      case 'gender':
+        setGenderOption(option)
+        // console.log(`gender - ${option}`);
+        break;
+      case 'status':
+        setStatusOption(option)
+        // console.log(`status - ${option}`);
+        break;
+      case 'specie':
+        setSpecieOption(option)
+        // console.log(`specie - ${option}`);
+        break;
+      default:
+        //nothing
+    }
+
+  }
 
 
   return (
     <>
       <Navbar title="Characters" 
         visible = {showBarSearch}
-        showBar={() => setShowBarSearch(!showBarSearch)}
+        showBar={() => {
+          if(showBarSearch) setText('')
+          setShowBarSearch(!showBarSearch)
+        }}
+        showMenu={() => {
+          setShowMenu(!showMenu)
+        }}
       />
-      <Sidebar />
+      <Sidebar 
+        visible = {showMenu}
+        onClick={handleOptionChange} 
+        option={{
+          gender:genderOption,
+          status:statusOption,
+          specie:specieOption
+        }}
+      />
       <main>
         <NavigationBar
           visible = {showBarSearch}
-          textValue={text}
           onChangeValue={ e => {
             setText(e.target.value)
           }}
+          textValue={text}
         />
         {
-          filteredCharacters.length < 1
+          filteredData.length < 1
             ? < NoResultFounded/>
             : <section className="container container-cards">
                 {
-                  filteredCharacters.map((character) => 
+                  (filteredData).map((character) => 
                     <Card key={character.id} character={character}/>
                   )
                 }
