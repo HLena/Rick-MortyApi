@@ -6,10 +6,11 @@ import xIcon from '../assets/icons/x-icon.svg'
 import './styles/Navbar.scss'
 
 const Navbar = (props) => {
-  const {title, showBar, visible} = props;
+  const {title, showBar, showMenu, visible} = props;
   return (
     <nav className="row">
       <img
+        onClick={showMenu}
         className="icon" 
         src={menuIcon} alt="search"/>
       <h1>{title}</h1>
