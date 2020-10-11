@@ -1,25 +1,41 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 
-const useFetch = (url) => {
-  const [data, setData] = useState([]);
+const defaultEndPoint = "https://rickandmortyapi.com/api/character/";
+
+const useFetch = () => {
+  const [data, setData] = useState({characters: []});
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
  
-  useEffect(() => {
-    const fetchResource = async() => {
-      try {
-        let res = await fetch(url);
-        let data = await res.json();
-        setData(data)
-        setLoading(false)
-      } catch (error ){
-        setLoading(false)
-        setError(error)
-      }
+  const fetchData = async(endPoint) => {
+
+    const isLoadMore = endPoint.includes('page');
+    console.log(isLoadMore)
+
+    try {
+      let res = await fetch(endPoint);
+      let result = await res.json();
+      setData(prev => ({
+        ...prev,
+        characters:
+          isLoadMore
+            ? [...prev.characters, ...result.results]
+            : [...result.results],
+        nextPage: result.info.next, 
+        prevPage: result.info.prev, 
+      }));
+    } catch (error ){
+      setError(error);
     }
-    fetchResource()
-  },[url])
-  return{ data, loading, error}
+    setLoading(false);
+  }
+
+  // Fetch popular movies initially on mount
+  useEffect(() => { 
+    fetchData(defaultEndPoint)
+  },[])
+
+  return[{data, loading, error}, fetchData ]
 }
 
 export default useFetch;

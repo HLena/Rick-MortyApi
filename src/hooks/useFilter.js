@@ -1,15 +1,18 @@
 import {useState, useMemo} from 'react'
 
-const useFilter = (characters, filterByGender, filterByStatus, filterBySpecie) => {
+const useFilter = (characters) => {
+  const [genderOption, setGenderOption] = useState('all');
+  const [statusOption, setStatusOption] = useState('all');
+  const [specieOption, setSpecieOption] = useState('all');
   const [filteredData, setFilteredData] = useState(characters);
   const [text, setText] = useState('');
 
   useMemo(() => {
     const results = (!text) 
       ? characters.filter(character => 
-        (filterByGender === 'all' || filterByGender === character.gender.toLocaleLowerCase()) &&
-        (filterByStatus === 'all' || filterByStatus === character.status.toLocaleLowerCase()) &&
-        (filterBySpecie === 'all' || filterBySpecie === character.species.toLocaleLowerCase()) 
+        (genderOption === 'all' || genderOption === character.gender.toLocaleLowerCase()) &&
+        (statusOption === 'all' || statusOption === character.status.toLocaleLowerCase()) &&
+        (specieOption === 'all' || specieOption === character.species.toLocaleLowerCase()) 
       )
       : characters.filter(character =>
         (`${character.name}`
@@ -17,8 +20,18 @@ const useFilter = (characters, filterByGender, filterByStatus, filterBySpecie) =
           .includes(text.toLocaleLowerCase()))
       );
     setFilteredData(results);
-  },[characters,filterByGender, filterByStatus, filterBySpecie, text ])
-  return {text, setText, filteredData}
+  },[characters,genderOption, statusOption, specieOption, text ])
+  return {
+    genderOption,
+    statusOption,
+    specieOption,
+    setGenderOption,
+    setStatusOption,
+    setSpecieOption,
+    text, 
+    setText, 
+    filteredData,
+  }
 }
 
 export default useFilter
