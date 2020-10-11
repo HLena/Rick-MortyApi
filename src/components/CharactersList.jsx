@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import useFilter from '../hooks/useFilter';
+import React from 'react';
+// import useFilter from '../hooks/useFilter';
 
-import Navbar from '../components/Navbar'
+// import Navbar from '../components/Navbar'
 import Card from '../components/Card'
 import NavigationBar from '../components/NavigationBar'
-import Sidebar from '../components/Sidebar'
+// import Sidebar from '../components/Sidebar'
 
 import pepinillo from '../assets/images/pepinillo.png'
 import './styles/CharactersList.scss'
@@ -25,41 +25,51 @@ const NoResultFounded = () => {
 
 
 const CharactersList = (props) => {
-  const [showBarSearch, setShowBarSearch] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-  const [genderOption, setGenderOption] = useState('all');
-  const [statusOption, setStatusOption] = useState('all');
-  const [specieOption, setSpecieOption] = useState('all');
-  const {text, setText, filteredData} = useFilter(props.data, genderOption, statusOption, specieOption);
-
-  // console.log('filter', filteredData);
-
-  const handleOptionChange = ({target}) => {
-    const option = target.id.includes('unknown') ? 'unknown' : target.id;
-    console.log(target);
-    switch(target.name) {
-      case 'gender':
-        setGenderOption(option)
-        // console.log(`gender - ${option}`);
-        break;
-      case 'status':
-        setStatusOption(option)
-        // console.log(`status - ${option}`);
-        break;
-      case 'specie':
-        setSpecieOption(option)
-        // console.log(`specie - ${option}`);
-        break;
-      default:
-        //nothing
+  const {
+    filteredData,
+    loadingMore,
+    page : {
+      nextPage, prevPage
+    },
+    bar : {
+      showBarSearch,
+      text,
+      setText
     }
+  } = props;
+  // const [showBarSearch, setShowBarSearch] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
+  // const [genderOption, setGenderOption] = useState('all');
+  // const [statusOption, setStatusOption] = useState('all');
+  // const [specieOption, setSpecieOption] = useState('all');
+  // const {text, setText, filteredData} = useFilter(props.data); 
 
-  }
+  // const handleOptionChange = ({target}) => {
+  //   const option = target.id.includes('unknown') ? 'unknown' : target.id;
+  //   console.log(target);
+  //   switch(target.name) {
+  //     case 'gender':
+  //       setGenderOption(option)
+  //       // console.log(`gender - ${option}`);
+  //       break;
+  //     case 'status':
+  //       setStatusOption(option)
+  //       // console.log(`status - ${option}`);
+  //       break;
+  //     case 'specie':
+  //       setSpecieOption(option)
+  //       // console.log(`specie - ${option}`);
+  //       break;
+  //     default:
+  //       //nothing
+  //   }
+
+  // }
 
 
   return (
     <>
-      <Navbar title="Characters" 
+      {/* <Navbar title="Characters" 
         visible = {showBarSearch}
         showBar={() => {
           if(showBarSearch) setText('')
@@ -77,7 +87,7 @@ const CharactersList = (props) => {
           status:statusOption,
           specie:specieOption
         }}
-      />
+      /> */}
       <main>
         <NavigationBar
           visible = {showBarSearch}
@@ -97,7 +107,8 @@ const CharactersList = (props) => {
                 }
               </section>
         }
-        
+        {prevPage !== null && <button onClick={loadingMore}>Go Previous</button>}
+        {nextPage !== null && <button onClick={loadingMore}>Load More</button>}
       </main>
     </>
   )
