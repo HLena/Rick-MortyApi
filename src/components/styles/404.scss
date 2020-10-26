@@ -1,0 +1,22 @@
+.not-found{
+  color: #FFF;
+  img{
+    width: max-content;
+  }
+}
+
+
+@media only screen and (max-width: 599px) {
+ .not-found{
+   width: 95%;
+   img{
+    width: 100%;
+  }
+  h1{
+    font-size: 15px;
+  }
+  h2{
+    font-size: 12px;
+  }
+ }
+}
