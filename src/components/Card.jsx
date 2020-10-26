@@ -15,7 +15,8 @@ const Card = (props) => {
     image,
     gender,
     status,
-    species } = props.character;
+    species,
+    location } = props.character;
   return (
     <div className="card-character"> 
       <img className="card__img" src={image} alt="name"/>

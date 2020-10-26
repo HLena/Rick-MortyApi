@@ -5,6 +5,7 @@ import useFilter from '../hooks/useFilter';
 import CharactersList from '../components/CharactersList'
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar'
+import Spinner from '../components/Spinner'
 
 
 const Characters = () => {
@@ -49,7 +50,7 @@ const Characters = () => {
   }
 
   if(error) return <h1>Error ...</h1>
-  if(loading) return <h1>Loading ...</h1>
+  if(loading) return <Spinner/>
 
   return (
     <>

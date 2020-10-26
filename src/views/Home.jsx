@@ -12,9 +12,9 @@ const Home = () => {
         className="logo" 
         src={Logo} alt="Logo"/>
       <div className="logo-container">
-        <div className="description">
+        {/* <div className="description">
           <p>Ricky and Morty is an American adult animated science diction adventure comedy series creates by Justin Rolland and Dan Harmon for Cartton Network's late-night programming block Adult Swim.</p>
-        </div>
+        </div> */}
         <img 
           className="main-logo mr-5" 
           src={MainLogo} alt="Logo"/> 

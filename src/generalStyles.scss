@@ -11,6 +11,7 @@ $backgroundColorSolid: rgba(17,38,62,1);
 
 *{
   font-family: 'Cousine', monospace;
+  box-sizing: border-box;
 }
 body{
   margin: 0;
@@ -28,10 +29,14 @@ body{
   overflow-x: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 main{
   padding-top: 60px;
+  width: 100%;
+  overflow-x: hidden;
+
 }
 
 .mr-5{
@@ -48,8 +53,10 @@ main{
 // buttons
 
 .btn{
-  bottom: none;
+  // bottom: none;
+  cursor: pointer;
   outline: none;
+  border: none;
 }
 
 .primary-btn{

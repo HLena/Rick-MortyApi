@@ -11,25 +11,20 @@
   background: $cardColor;
   .card__img{
     border-radius: 5px 5px 0 0;
-    height: 300px;
-    width: 300px;
+    height: 150px;
+    width: 150px;
   }
   .card__info{
     width: 100%;
     .name-character{
       margin: 10px;
     }
-    .card-icon{
-      width: 15px;
-      height: 15px;
-      margin: 10px;
-    }
     .detail{
+      width: 50%;
       justify-content: center;
       align-items: center;
       display: flex;
       flex-direction: row;
-      width: 50%;
     }
     hr{
       width: 90%;
@@ -40,19 +35,49 @@
 
 .state-icon{
   border-radius: 45%;
-  // background: red;
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 599px) {
   .card-character{
-    width: max-content;
+    .card__img{
+      height: 150px;
+      width: 150px;
+    }
+    .card__info{
+      .name-character{
+        font-size: 14px;
+      }
+      .detail{
+        font-size: 12px;
+       }
+       .card-icon{
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+      }
+
+    }
+  }
+}
+@media only screen and (min-width: 600px) {
+  .container-cards{
+    margin: 0 30px;
+  }
+  .card-character{
+    width: 450px;
     .card__img{
       height: 250px;
       width: 250px;
     }
     .card__info{
-      width: 250px;
+      width: calc(100% - 250px);
     }
+    .card-icon{
+      width: 15px;
+      height: 15px;
+      margin: 5px;
+    }
+    
   }
 }
