@@ -4,7 +4,7 @@ import './styles/Spinner.scss'
 
 const Spinner = () => {
   return (
-    <div class="lds-dual-ring"></div>
+    <div className="lds-dual-ring"></div>
   )
 }
 

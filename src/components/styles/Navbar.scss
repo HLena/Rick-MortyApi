@@ -10,5 +10,11 @@ nav{
   font-family: 'Cousine', monospace;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 10;
+  padding: 10px 15px;
+  img.logo{
+    height: 40px;
+    width: 180px;
+  }
 }

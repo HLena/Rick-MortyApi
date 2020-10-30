@@ -1,10 +1,10 @@
-$backgroundColor: radial-gradient( circle 468px at 50.9% 57%,  rgba(8,108,125,0.90) 1.8%, rgba(17,38,62,1) 90.7% );
-$transparentColor: rgba(255, 255, 255, 0.363);
+$backgroundColor: #222738;
+$transparentColor: #171E30;
 $fontLigthColor: #fff;
 $btnColor: #38B0C8;
-$cardColor: rgb(32, 62, 97);
+$cardColor: #292D43;
 $pinckColor : #3ce4c8;
-$backgroundColorSolid: rgba(17,38,62,1);
+$backgroundColorSolid: #222738;
 
 @import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
@@ -21,7 +21,7 @@ body{
 }
 
 #root{
-  background-image: $backgroundColor;
+  background: $backgroundColor;
   width: 100vw;
   min-height: 100vh;
   height: max-content;
@@ -30,11 +30,13 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 60px;
 }
 
 main{
-  padding-top: 60px;
   width: 100%;
+  min-height:100vh;
+  max-height: max-content;
   overflow-x: hidden;
 
 }
@@ -53,7 +55,6 @@ main{
 // buttons
 
 .btn{
-  // bottom: none;
   cursor: pointer;
   outline: none;
   border: none;
@@ -90,6 +91,5 @@ h1{
 
 .icon{
   width: 30px;
-  margin: 10px;
   cursor: pointer;
 }

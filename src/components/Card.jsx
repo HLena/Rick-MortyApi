@@ -15,6 +15,7 @@ const Card = (props) => {
     image,
     gender,
     status,
+    origin,
     species,
     location } = props.character;
   return (
@@ -40,7 +41,9 @@ const Card = (props) => {
           </div>
         </div>
         <hr/>
-        <p>{species}</p>
+        <p className="specie">{species}</p>
+        <p className="location">{location.name.replace('(Replacement Dimension)','')}</p>
+        <p className="origin">{origin.name.replace('(Replacement Dimension)','')}</p>
       </div>
     </div>
   )

@@ -10,7 +10,6 @@ const useFetch = () => {
   const fetchData = async(endPoint) => {
 
     const isLoadMore = endPoint.includes('page');
-    console.log(isLoadMore)
 
     try {
       let res = await fetch(endPoint);
